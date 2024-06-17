@@ -35,7 +35,7 @@
 .blue-block {
     width: 100%;
     height: 100vh;
-    background-color: #080026;
+    background-color: #050016;
     color: white;
     display: flex;
     flex-direction: column;
@@ -47,5 +47,5 @@
 .mainBlock {
     display: flex;
     flex-direction: column;
-    background-color: #080026;
+    background-color: #050016;
 }

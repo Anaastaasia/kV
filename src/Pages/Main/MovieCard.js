@@ -6,6 +6,8 @@ const MovieCard = ({ movie }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const hasPoster = movie.poster && movie.poster.url;
+    const year = movie.year ? movie.year : 'N/A';
+    const firstGenre = movie.genres ? movie.genres[0].name : 'N/A';  
 
     return (
     <div
@@ -17,6 +19,11 @@ const MovieCard = ({ movie }) => {
         {hasPoster && (
         <div className={`movie-title ${isHovered ? 'show' : ''}`}>
             <h3>{movie.name}</h3>
+            <p>
+                {movie.rating.imdb !== 0 ? movie.rating.imdb : <span>-</span>}
+            </p>
+            <p>{year}</p>
+            <p>{firstGenre}</p>
         </div>
         )}
     </div>

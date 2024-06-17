@@ -1,4 +1,12 @@
 /* src/Pages/Main/css/MovieCardContainer.css */
+
+.container {
+display: flex;
+flex-direction: column;
+}
+
+
+
 .movie-card-container {
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +18,6 @@
 
 .movie-card {
   width: 16%;
-
   background-size: cover;
   background-position: center;
   position: relative;
@@ -44,7 +51,7 @@
 
 .movie-title {
   position: absolute;
-  bottom: -100px;
+  bottom: -150px;
   width: 100%;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -59,21 +66,30 @@
 
 .pagination {
   width: 100%;
+
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
-  position: absolute;
-  bottom: 20px;
+  padding: 20px 0;
 }
 
+
+
 .pagination button {
-  padding: 10px 20px;
-  background-color: #007BFF;
-  color: white;
+
+  padding: 10px 15px;
+  background-color: #ffffff;
+  color: rgb(75, 75, 75);
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.pagination button.active {
+  background-color: #00B0B6;
+  color: white;
 }
 
 .pagination button:disabled {
@@ -82,5 +98,53 @@
 }
 
 .pagination button:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: #00B0B6;
+}
+
+
+.pagination .arrow {
+  background-color: #00B0B6;
+}
+
+
+/* src/Pages/Main/css/MovieCardContainer.css */
+.filters {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.filters h3 {
+  margin-top: 0;
+}
+
+.filters h4 {
+  margin-bottom: 5px;
+}
+
+.filters label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.filters input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.filters button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00B0B6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #00B0B6;
 }

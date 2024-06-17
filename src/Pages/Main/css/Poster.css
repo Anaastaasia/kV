@@ -90,7 +90,7 @@ legend {
 
 .poster_container {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     width: 100vw;
     height: 100vh;
@@ -100,9 +100,9 @@ legend {
 .description {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 80px;
     width: 55vw;
-    margin: 100px 0px 20px 50px;
+    margin: 130px 0px 20px 100px;
     font-family: "Merriweather";
     font-weight: bold;
     font-size: 35px;
@@ -119,9 +119,9 @@ legend {
 
 
 .poster {
-    width: 95vw;
-    height: 80vh;
-    border-radius: 30px;
+    width: 100vw;
+    height: 90vh;
+    border-radius: 0px;
     display: flex;
     flex-direction: column;
     color: white;

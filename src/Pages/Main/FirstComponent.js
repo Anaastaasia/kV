@@ -10,9 +10,7 @@ const FirstComponent = () => {
         <Poster/>
         </div>
         <ButtonFavorites/>
-
         <MovieCardContainer/>
-        
     </div>
     );
 };
