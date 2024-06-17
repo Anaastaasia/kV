@@ -1,0 +1,39 @@
+    button {
+        display: flex;
+        align-items: center;
+        padding: 10px 22px;
+        font-size: 18px;
+        background-color: transparent;
+        border: none;
+        border-radius: 35px;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        overflow: hidden;
+        transition: color 400ms;
+        color: #beb8b1;
+        font-family: 'Mulish';
+
+    }
+    
+    button svg {
+        margin-left: 8px;
+        transition: transform 400ms;
+        fill: rgb(255, 255, 255);
+    }
+    
+    button:hover svg {
+        animation: beatingHeart 1.2s infinite;
+        fill: #90323D;
+    }
+    
+    @keyframes beatingHeart {
+        0%, 30%, 60% {
+        transform: scale(1);
+        }
+        15%, 45% {
+        transform: scale(1.15);
+        }
+    }
+    

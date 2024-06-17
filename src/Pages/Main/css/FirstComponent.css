@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../font/Merriweather/Merriweather-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('../font/Mulish/Mulish-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Maitree';
+    src: url('../font/Maitree/Maitree-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../font/Merriweather/Merriweather-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Maitree';
+    src: url('../font/Maitree/Maitree-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+.blue-block {
+    width: 100%;
+    height: 100vh;
+    background-color: #080026;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.mainBlock {
+    display: flex;
+    flex-direction: column;
+    background-color: #080026;
+}
