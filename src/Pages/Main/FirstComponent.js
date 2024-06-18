@@ -2,6 +2,7 @@ import ButtonFavorites from './ButtonFavorites';
 import './css/FirstComponent.css'
 import Poster from './Poster';
 import MovieCardContainer from './MovieCardContainer';
+import { Link } from 'react-router-dom';
 
 const FirstComponent = () => {
     return (
@@ -9,7 +10,7 @@ const FirstComponent = () => {
         <div className="blue-block">
         <Poster/>
         </div>
-        <ButtonFavorites/>
+        
         <MovieCardContainer/>
     </div>
     );

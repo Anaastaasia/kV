@@ -3,6 +3,14 @@
 .container {
 display: flex;
 flex-direction: column;
+color: white;
+padding: 0 40px;
+}
+
+.container_filter {
+  display: flex;
+
+  justify-content: space-between;
 }
 
 
@@ -14,6 +22,7 @@ flex-direction: column;
   justify-content: center;
   padding: 20px;
   position: relative;
+  min-height: 200px;
 }
 
 .movie-card {
@@ -25,12 +34,6 @@ flex-direction: column;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s, background-color 0.3s;
-}
-
-.movie-card::before {
-  content: "";
-  display: block;
-  padding-bottom: 150%; /* 2:3 Aspect Ratio */
 }
 
 
@@ -51,7 +54,7 @@ flex-direction: column;
 
 .movie-title {
   position: absolute;
-  bottom: -150px;
+  bottom: -350px;
   width: 100%;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -79,7 +82,7 @@ flex-direction: column;
 .pagination button {
 
   padding: 10px 15px;
-  background-color: #ffffff;
+  background-color: #dcdcdc;
   color: rgb(75, 75, 75);
   border: none;
   border-radius: 50px;
@@ -88,63 +91,157 @@ flex-direction: column;
 }
 
 .pagination button.active {
-  background-color: #00B0B6;
+  background-color: #00194a;
   color: white;
 }
 
+
+
 .pagination button:disabled {
-  background-color: #ccc;
+  background-color: #565656;
+  cursor: not-allowed;
+}
+
+.pagination button:disabled:hover {
+  background-color: #565656;
   cursor: not-allowed;
 }
 
 .pagination button:hover:not(:disabled) {
-  background-color: #00B0B6;
+  background-color: #00246c;
+  color: white;
 }
 
 
 .pagination .arrow {
-  background-color: #00B0B6;
+  background-color: #00194a;
+  color: white;
 }
 
 
 /* src/Pages/Main/css/MovieCardContainer.css */
 .filters {
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
-.filters h3 {
-  margin-top: 0;
-}
-
-.filters h4 {
-  margin-bottom: 5px;
-}
-
-.filters label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.filters input[type="text"] {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+align-items: flex-start;
+  font-family: 'Mulish';
 }
 
 .filters button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #00B0B6;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #00143b;
+  border-radius: 5px;
   color: white;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  font-family: 'Mulish';
+  position: relative; /* Добавлено для позиционирования dropdown */
 }
 
 .filters button:hover {
-  background-color: #00B0B6;
+  background-color: #00143bc1;
 }
+
+.filterOne {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown {
+
+  display: flex;
+  flex-direction: column;
+  background-color: #01194b;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 5px; /* Отступ для dropdown */
+  z-index: 1;
+  opacity: 0; /* Начальное значение для анимации */
+  transform: translateY(-10px); /* Начальное смещение для анимации */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Анимация */
+}
+
+.dropdown.show {
+  opacity: 1; /* Конечное значение для анимации */
+  transform: translateY(0); /* Конечное смещение для анимации */
+}
+
+
+.dropdown label {
+  margin-bottom: 5px;
+}
+
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+.pagination .active {
+  background-color: #0056b3;
+}
+
+.pagination .arrow {
+  padding: 10px 15px;
+}
+
+.cyberpunk-checkbox {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #288cfb;
+  border-radius: 5px;
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cyberpunk-checkbox:before {
+  content: "";
+  background-color: #288cfb;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 7px;
+  height: 7px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cyberpunk-checkbox:checked:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.cyberpunk-checkbox-label {
+
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+.input {
+  border: none;
+  width: 45px;
+  padding: 5px;
+  border-radius: 7px;
+  background: #cecece;
+  transition: 0.3s;
+}
+
+.inputYear {
+width: 60px;
+}
+
+  .input:focus {
+  outline-color: #e8e8e8;
+  background: #e8e8e8;
+  box-shadow: inset 5px 5px 5px #c5c5c5,
+  inset -20px -20px 60px #ffffff;
+  transition: 0.3s;
+  }

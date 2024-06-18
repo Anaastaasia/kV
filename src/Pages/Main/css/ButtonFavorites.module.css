@@ -1,5 +1,5 @@
 .buttonFavorites {
-    position: absolute;
+
     bottom: 0px;
     right: 30px;
     z-index: 2;
@@ -30,7 +30,7 @@
     
     .buttonSvg:hover svg {
         animation: beatingHeart 1.2s infinite;
-        fill: #00B0B6;
+        fill: #00246c;
     }
     
     @keyframes beatingHeart {
