@@ -1,0 +1,8 @@
+.container_favorites {
+    width: 100vw;
+    height: max-content;
+    min-height: 100vh;
+    background-color: #050016;
+    color: white;
+    padding: 50px 100px;
+}

@@ -1,4 +1,5 @@
-import ButtonFavorites from './ButtonFavorites';
+/* src/Pages/Main/FirstComponent.js */
+
 import './css/FirstComponent.css'
 import Poster from './Poster';
 import MovieCardContainer from './MovieCardContainer';
@@ -10,7 +11,6 @@ const FirstComponent = () => {
         <div className="blue-block">
         <Poster/>
         </div>
-        
         <MovieCardContainer/>
     </div>
     );

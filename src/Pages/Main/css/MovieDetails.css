@@ -1,0 +1,67 @@
+.container_componentMovieDetails_isLoading {
+    width: 100vw;
+    height: max-content;
+    min-height: 100vh;
+}
+
+.container_details {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(2,0,36);
+background: linear-gradient(190deg, rgba(2,0,36,1) 0%, rgba(5,0,22,1) 30%, rgba(0,3,74,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 150px;
+}
+
+.button_back {
+    position: absolute;
+
+
+    top: 30px;
+    left: 40px;
+    color: #dfd9d0;
+
+
+    font-family: 'Mulish';
+
+
+}
+
+.container_img {
+    max-width: 600px; /* Максимальная ширина контейнера */
+}
+
+.container_img img {
+width: 400px;
+height: 600px;
+border-radius: 10px;
+
+}
+
+.details_descriptions {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #dfd9d0;
+    display: flex;
+    flex-direction: column;
+    
+
+    gap: 100px;
+    max-width: 500px;
+}
+
+.header {
+    font-size: 50px;
+    font-family: "Merriweather";
+}
+
+.details_description {
+font-size: 20px;
+display: flex;
+flex-direction: column;
+gap: 20px;
+line-height: 30px;
+font-family: 'Mulish';
+font-style: italic;
+}

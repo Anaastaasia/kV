@@ -1,6 +1,7 @@
 /* src/Pages/Main/MovieCardContainer.js */
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MovieCard from './MovieCard';
 import './css/MovieCardContainer.css';
 import ButtonFavorites from './ButtonFavorites';
@@ -8,7 +9,7 @@ import IsLoading from './Loading';
 
 const options = {
   method: 'GET',
-  headers: { accept: 'application/json', 'X-API-KEY': 'YOUR_API_KEY' }
+  headers: { accept: 'application/json', 'X-API-KEY': '' }
 };
 
 const MovieCardContainer = () => {
@@ -16,6 +17,7 @@ const MovieCardContainer = () => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const totalPages = 10;  // Фиксированное количество страниц
+  const navigate = useNavigate();
 
   // Новые состояния для фильтров
   const [genreFilter, setGenreFilter] = useState([]);
@@ -28,6 +30,12 @@ const MovieCardContainer = () => {
   const [isGenreDropdownOpen, setIsGenreDropdownOpen] = useState(false);
   const [isRatingDropdownOpen, setIsRatingDropdownOpen] = useState(false);
   const [isYearDropdownOpen, setIsYearDropdownOpen] = useState(false);
+
+  // Состояние для избранных фильмов
+  const [favorites, setFavorites] = useState(() => {
+    const savedFavorites = localStorage.getItem('favorites');
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
 
   const fetchMovies = useCallback(async (currentPage, updateNextPageData = false) => {
     setIsLoading(true);
@@ -158,6 +166,19 @@ const toggleYearDropdown = () => {
   }
 };
 
+const toggleFavorite = (movie) => {
+  let updatedFavorites;
+  const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  
+  if (currentFavorites.some(fav => fav.id === movie.id)) {
+    updatedFavorites = currentFavorites.filter(fav => fav.id !== movie.id);
+  } else {
+    updatedFavorites = [...currentFavorites, movie];
+  }
+  setFavorites(updatedFavorites);
+  localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+};
+
 
 
 
@@ -224,10 +245,12 @@ const toggleYearDropdown = () => {
       </div>
       
       {isLoading ? (
-        <IsLoading/>
+        <div className='container_componentMovieCard_isLoading'>
+          <IsLoading/>
+        </div>
       ) : (
         <div className="movie-card-container">
-          {movies.map((movie, index) => <MovieCard key={index} movie={movie} />)}
+          {movies.map((movie, index) => <MovieCard key={index} movie={movie} toggleFavorite={toggleFavorite} />)}
         </div>
       )}
       <div className="pagination">

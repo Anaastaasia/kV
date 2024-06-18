@@ -1,12 +1,27 @@
 /* src/Pages/Main/MovieCard.js */
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './css/MovieCardContainer.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, toggleFavorite }) => {
     const [isHovered, setIsHovered] = useState(false);
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/movie/${movie.id}`);
+    };
+
+    const handleFavoriteClick = (e) => {
+        e.stopPropagation(); // Чтобы не срабатывал переход на страницу фильма
+        toggleFavorite(movie);
+    };
+
+
+    const isFavorite = localStorage.getItem('favorites')?.includes(movie.id);
 
     const hasPoster = movie.poster && movie.poster.url;
     const year = movie.year ? movie.year : 'N/A';
@@ -18,6 +33,8 @@ const MovieCard = ({ movie }) => {
             className={`movie-card ${isHovered ? 'hovered' : ''}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={handleClick}
+            style={{ cursor: 'pointer' }}
         >
             {hasPoster && (
                 <LazyLoadImage
@@ -32,7 +49,9 @@ const MovieCard = ({ movie }) => {
                     <h3>{movie.name}</h3>
                     <p>{roundedRating !== '-' ? roundedRating : <span>-</span>}</p>
                     <p>{year}</p>
-                    <p>{firstGenre}</p>
+                    <button className={`favorite-button ${isFavorite ? 'favorite' : ''}`} onClick={handleFavoriteClick}>
+                        ♥
+                    </button>
                 </div>
             )}
         </div>
