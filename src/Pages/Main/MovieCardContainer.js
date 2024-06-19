@@ -10,7 +10,7 @@ import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 const options = {
   method: 'GET',
-  headers: { accept: 'application/json', 'X-API-KEY': 'R1FCW2T-PB6MF8D-QZHZAVR-EZ2K5BP' }
+  headers: { accept: 'application/json', 'X-API-KEY': process.env.REACT_APP_API_KEY }
 };
 
 const MovieCardContainer = () => {
@@ -51,7 +51,7 @@ const MovieCardContainer = () => {
       .join('&');
 
     try {
-      const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?page=${currentPage}&limit=50&${filterQuery}`, options);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/v1.4/movie?page=${currentPage}&limit=50&${filterQuery}`, options);
       const data = await response.json();
       const filteredMovies = data.docs.filter(movie => 
         movie.poster?.url && movie.name && movie.description

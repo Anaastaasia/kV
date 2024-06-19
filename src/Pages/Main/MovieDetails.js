@@ -29,11 +29,11 @@ const MovieDetail = () => {
     useEffect(() => {
         const fetchMovie = async () => {
         try {
-            const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie/${id}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/v1.4/movie/${id}`, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                'X-API-KEY': 'R1FCW2T-PB6MF8D-QZHZAVR-EZ2K5BP',
+                'X-API-KEY': process.env.REACT_APP_API_KEY,
             },
             });
             const data = await response.json();
