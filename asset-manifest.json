@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/kV/static/css/main.2564914e.css",
-    "main.js": "/kV/static/js/main.768ba85b.js",
+    "main.js": "/kV/static/js/main.460edf79.js",
     "static/media/Mulish-Italic-VariableFont_wght.ttf": "/kV/static/media/Mulish-Italic-VariableFont_wght.9d8631c82dec2ec7904b.ttf",
     "static/media/Maitree-Bold.ttf": "/kV/static/media/Maitree-Bold.3771db139aaaab08b985.ttf",
     "static/media/Merriweather-Regular.ttf": "/kV/static/media/Merriweather-Regular.da67ca8c38ef44c4773d.ttf",
     "static/media/Merriweather-Bold.ttf": "/kV/static/media/Merriweather-Bold.ae39f743fdcf8f64531e.ttf",
     "index.html": "/kV/index.html",
     "main.2564914e.css.map": "/kV/static/css/main.2564914e.css.map",
-    "main.768ba85b.js.map": "/kV/static/js/main.768ba85b.js.map"
+    "main.460edf79.js.map": "/kV/static/js/main.460edf79.js.map"
   },
   "entrypoints": [
     "static/css/main.2564914e.css",
-    "static/js/main.768ba85b.js"
+    "static/js/main.460edf79.js"
   ]
 }
