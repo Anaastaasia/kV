@@ -13,10 +13,21 @@
         console.log('Избранные фильмы:', savedFavorites); // Добавим лог для отладки
     }, []);
 
+    const toggleFavorite = (movie) => {
+        const updatedFavorites = favorites.filter(fav => fav.id !== movie.id);
+        setFavorites(updatedFavorites);
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    };
+
     return (
         <div className='container_favorites'>
-        <button onClick={() => navigate(-1)}>Назад</button>
-        <h1>Избранные фильмы</h1>
+            <button className='button_back' onClick={() => navigate(-1)}>
+                <svg width="48" height="48" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.11 8l1.415-1.414 4.95-4.95 1.414 1.414L6.94 8l4.95 4.95-1.414 1.414-4.95-4.95L4.111 8z" fill="#dfd9d0"></path>
+                </svg>
+            </button>
+            <div className='container_favoritesCards'>
+        <h1 className='header_favorites'>Избранные фильмы</h1>
         <div className="movie-card-container">
             {favorites.length === 0 ? (
             <p>Нет избранных фильмов</p>
@@ -25,10 +36,11 @@
                 <MovieCard
                 key={index}
                 movie={movie}
-                toggleFavorite={() => {}}
+                toggleFavorite={toggleFavorite}
                 />
             ))
             )}
+        </div>
         </div>
         </div>
     );

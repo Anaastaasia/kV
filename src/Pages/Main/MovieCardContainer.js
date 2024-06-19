@@ -26,6 +26,9 @@ const MovieCardContainer = () => {
   const [filters, setFilters] = useState({ genreFilter: [], ratingFilter: { min: 0, max: 10 }, yearFilter: { start: 1990, end: new Date().getFullYear() }});
   const [nextPageData, setNextPageData] = useState(null);
 
+  // Набор для уникальных фильмов
+  const movieSet = new Set();
+
   // Состояния для управления видимостью выпадающих меню
   const [isGenreDropdownOpen, setIsGenreDropdownOpen] = useState(false);
   const [isRatingDropdownOpen, setIsRatingDropdownOpen] = useState(false);
@@ -53,11 +56,19 @@ const MovieCardContainer = () => {
         movie.poster?.url && movie.name && movie.description
       );
 
+      const uniqueMovies = filteredMovies.filter(movie => {
+        if (!movieSet.has(movie.id)) {
+          movieSet.add(movie.id);
+          return true;
+        }
+        return false;
+      });
+
       if (updateNextPageData) {
         setNextPageData(filteredMovies);
       } else {
         setMovies(prevMovies => {
-          const allMovies = [...prevMovies, ...filteredMovies];
+          const allMovies = [...prevMovies, ...uniqueMovies];
           if (allMovies.length < 50 && currentPage < totalPages) {
             fetchMovies(currentPage + 1);
           }
@@ -249,11 +260,11 @@ const toggleFavorite = (movie) => {
           <IsLoading/>
         </div>
       ) : (
+        <div className='container_movie_pagination'>
         <div className="movie-card-container">
           {movies.map((movie, index) => <MovieCard key={index} movie={movie} toggleFavorite={toggleFavorite} />)}
         </div>
-      )}
-      <div className="pagination">
+        <div className="pagination">
         <button className='arrow' onClick={handlePreviousPage} disabled={page === 1}>&laquo;</button>
         {getPageNumbers().map(num => (
           <button key={num}
@@ -264,6 +275,8 @@ const toggleFavorite = (movie) => {
         ))}
         <button className='arrow' onClick={handleNextPage} disabled={page === totalPages}>&raquo;</button>
       </div>
+        </div>
+      )}
     </div>
   );
 };

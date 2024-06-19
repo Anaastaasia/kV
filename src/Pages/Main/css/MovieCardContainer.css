@@ -53,9 +53,12 @@ padding: 0 40px;
   transition: background 0.3s;
 }
 
-.movie-card.hovered::after {
-  background: rgba(0, 0, 0, 0.5);
+@media (hover: hover) {
+  .movie-card.hovered::after {
+    background: rgba(0, 0, 0, 0.5);
+  }
 }
+
 
 .movie-title {
   position: absolute;
@@ -80,6 +83,11 @@ padding: 0 40px;
   align-items: center;
   gap: 10px;
   padding: 20px 0;
+}
+
+.container_movie_pagination {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -155,8 +163,7 @@ align-items: flex-start;
 }
 
 .dropdown {
-
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: #01194b;
   border: 1px solid #ccc;
@@ -169,6 +176,7 @@ align-items: flex-start;
 }
 
 .dropdown.show {
+  display: block flex;
   opacity: 1; /* Конечное значение для анимации */
   transform: translateY(0); /* Конечное смещение для анимации */
 }
@@ -263,7 +271,58 @@ width: 60px;
     z-index: 10;
   }
   
-  .favorite-button.favorite {
-    color: red;
+  .favorite-button .heart-icon {
+    fill: rgb(255, 255, 255); /* Цвет по умолчанию */
+    stroke: #000; /* Черная обводка */
+    stroke-width: 1px; /* Толщина обводки */
+  }
+
+  .favorite-button .heart-icon:hover {
+transform: scale(1.1);
   }
   
+  .favorite-button.favorite .heart-icon {
+    fill: red; /* Цвет, когда фильм добавлен в избранное */
+  }
+
+  @media (max-width: 768px) {
+
+    .blue-block {
+      height: 100%;
+    }
+
+    .movie-card {
+      width: 26%;
+    }
+
+    .container_filter {
+      flex-direction: column;
+      justify-content: flex-start;
+
+    }
+    
+    .filters {
+      flex-wrap: wrap;
+      justify-content: start;
+      gap: 10px;
+    }
+    .movie-title {
+      position: relative;
+      background: none;
+      bottom: 0;
+      font-size: 13px;
+    }
+
+    .container {
+      gap: 40px;
+    }
+    
+  }
+
+
+
+  @media (max-width: 500px) {
+    .movie-card {
+      width: 40%;
+    }
+  }

@@ -125,6 +125,8 @@ legend {
     display: flex;
     flex-direction: column;
     color: white;
+    background-position: right;
+
 }
 
 
@@ -149,4 +151,40 @@ legend {
 
 .dot.active {
     background-color: white;
+}
+
+
+
+@media (max-width: 768px) {
+    .description {
+        text-align: center;
+        gap: 10px;
+        width: 80vw;
+        margin: 0px 0px 41vh 11%;
+        font-size: clamp(0.625rem, 0.029rem + 2.54vw, 1.25rem);
+        position: absolute;
+        bottom: 130px;
+        background-color: #00000085;
+    }
+
+    .text{
+        width: 100%;
+        font-size: 13px;
+        line-height: 15px;
+    }
+
+    .poster {
+        height: 50vh;
+    }
+
+    .poster_container {
+        height: 100%;
+    }
+    
+    .dots-container {
+
+        top: 4%;
+    }
+
+
 }

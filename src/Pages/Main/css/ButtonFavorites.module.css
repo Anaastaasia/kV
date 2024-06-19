@@ -25,7 +25,7 @@
     .buttonSvg svg {
         margin-left: 8px;
         transition: transform 400ms;
-        fill: rgb(255, 255, 255);
+        fill: #ffffff;
     }
     
     .buttonSvg:hover svg {

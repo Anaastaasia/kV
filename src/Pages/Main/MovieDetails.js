@@ -47,12 +47,12 @@ const MovieDetail = () => {
             <svg width="48" height="48" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.11 8l1.415-1.414 4.95-4.95 1.414 1.414L6.94 8l4.95 4.95-1.414 1.414-4.95-4.95L4.111 8z" fill="#dfd9d0"></path>
 </svg>
-            </button> {/* Кнопка "Назад" */}
+            </button>
             <div className='details_descriptions'>
                 <h1 className='header'>{movie.name}</h1>
                 <div className='details_description'>
                     <p>{movie.description}</p>
-                    {movie.rating.kp === 0 ? 'Недостаточно оценок, рейтинг формируется' : <p>Rating: {movie.rating.kp}</p>}
+                    {movie.rating.kp === 0 ? 'Рейтинг:  Недостаточно оценок, рейтинг формируется' : <p>Рейтинг: {movie.rating.kp}</p>}
                     <p>Год выпуска: {movie.year}</p>
                     <p>Жанры: {movie.genres.map((genre) => genre.name).join(', ')}</p>
                 </div>

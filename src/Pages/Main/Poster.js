@@ -22,10 +22,11 @@ const Poster = () => {
     const currentFilm = top[currentIndex].docs[0];
     const backdropUrl = currentFilm.backdrop.url;
 
+
     return (
     <div className='poster_container'>
         <div className="poster" style={{
-            backgroundImage: `linear-gradient(to right, black 20%, transparent 80%), url(${backdropUrl})`,
+            backgroundImage: `url(${backdropUrl})`,
 
             backgroundSize: 'cover',
         }}>

@@ -1,18 +1,18 @@
 .container_componentMovieDetails_isLoading {
     width: 100vw;
-    height: max-content;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .container_details {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: rgb(2,0,36);
 background: linear-gradient(190deg, rgba(2,0,36,1) 0%, rgba(5,0,22,1) 30%, rgba(0,3,74,1) 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 150px;
+    padding: 100px clamp(3.125rem, -5.671rem + 18.52vw, 9.375rem); /*50-1250 для 760-1300*/
+    gap: 20px;
 }
 
 .button_back {
@@ -35,7 +35,7 @@ background: linear-gradient(190deg, rgba(2,0,36,1) 0%, rgba(5,0,22,1) 30%, rgba(
 
 .container_img img {
 width: 400px;
-height: 600px;
+
 border-radius: 10px;
 
 }
@@ -47,12 +47,12 @@ border-radius: 10px;
     flex-direction: column;
     
 
-    gap: 100px;
-    max-width: 500px;
+    gap: clamp(1.25rem, -4.028rem + 11.11vw, 5rem);/*20-80 для 760-1300*/
+    max-width: 50%;
 }
 
 .header {
-    font-size: 50px;
+    font-size: clamp(2.188rem, 0.868rem + 2.78vw, 3.125rem); /*35-50 для 760-1300*/
     font-family: "Merriweather";
 }
 
@@ -61,7 +61,21 @@ font-size: 20px;
 display: flex;
 flex-direction: column;
 gap: 20px;
-line-height: 30px;
+line-height: clamp(1.25rem, 0.458rem + 1.67vw, 1.813rem);/*20-29 для 760-1300*/
 font-family: 'Mulish';
 font-style: italic;
+font-size: clamp(0.938rem, 0.498rem + 0.93vw, 1.25rem); /*15-20 для 760-1300*/
+}
+
+
+
+
+@media (max-width: 768px) {
+    .container_details {
+        flex-direction: column-reverse;
+    }
+    
+    .details_descriptions {
+        max-width: 100%;
+    }
 }
