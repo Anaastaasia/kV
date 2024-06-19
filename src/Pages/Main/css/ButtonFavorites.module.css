@@ -3,7 +3,6 @@
     bottom: 0px;
     right: 30px;
     z-index: 2;
-    
 }
 
 .buttonSvg {
@@ -19,7 +18,6 @@
         transition: color 400ms;
         color: #beb8b1;
         font-family: 'Mulish';
-
     }
     
     .buttonSvg svg {

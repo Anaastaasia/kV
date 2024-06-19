@@ -9,7 +9,6 @@ padding: 0 40px;
 
 .container_filter {
   display: flex;
-
   justify-content: space-between;
 }
 
@@ -17,8 +16,6 @@ padding: 0 40px;
   width: 100vw;
   height: 200px;
 }
-
-
 
 .movie-card-container {
   display: flex;
@@ -41,9 +38,6 @@ padding: 0 40px;
   transition: transform 0.3s, background-color 0.3s;
 }
 
-
-
-
 .movie-card::after {
   content: "";
   position: absolute;
@@ -60,7 +54,6 @@ padding: 0 40px;
     background: rgba(0, 0, 0, 0.5);
   }
 }
-
 
 .movie-title {
   position: absolute;
@@ -79,7 +72,6 @@ padding: 0 40px;
 
 .pagination {
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,10 +84,7 @@ padding: 0 40px;
   flex-direction: column;
 }
 
-
-
 .pagination button {
-
   padding: 10px 15px;
   background-color: #dcdcdc;
   color: rgb(75, 75, 75);
@@ -109,8 +98,6 @@ padding: 0 40px;
   background-color: #00194a;
   color: white;
 }
-
-
 
 .pagination button:disabled {
   background-color: #565656;
@@ -127,19 +114,16 @@ padding: 0 40px;
   color: white;
 }
 
-
 .pagination .arrow {
   background-color: #00194a;
   color: white;
 }
 
-
-/* src/Pages/Main/css/MovieCardContainer.css */
 .filters {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-align-items: flex-start;
+  align-items: flex-start;
   font-family: 'Mulish';
 }
 
@@ -152,7 +136,7 @@ align-items: flex-start;
   border: none;
   cursor: pointer;
   font-family: 'Mulish';
-  position: relative; /* Добавлено для позиционирования dropdown */
+  position: relative; 
 }
 
 .filters button:hover {
@@ -170,24 +154,22 @@ align-items: flex-start;
   background-color: #01194b;
   border: 1px solid #ccc;
   padding: 10px;
-  margin-top: 5px; /* Отступ для dropdown */
+  margin-top: 5px; 
   z-index: 1;
-  opacity: 0; /* Начальное значение для анимации */
-  transform: translateY(-10px); /* Начальное смещение для анимации */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Анимация */
+  opacity: 0; 
+  transform: translateY(-10px); 
+  transition: opacity 0.3s ease, transform 0.3s ease; 
 }
 
 .dropdown.show {
   display: block flex;
-  opacity: 1; /* Конечное значение для анимации */
-  transform: translateY(0); /* Конечное смещение для анимации */
+  opacity: 1; 
+  transform: translateY(0); 
 }
-
 
 .dropdown label {
   margin-bottom: 5px;
 }
-
 
 .pagination button:hover {
   background-color: #0056b3;
@@ -274,9 +256,9 @@ width: 60px;
   }
   
   .favorite-button .heart-icon {
-    fill: rgb(255, 255, 255); /* Цвет по умолчанию */
-    stroke: #000; /* Черная обводка */
-    stroke-width: 1px; /* Толщина обводки */
+    fill: rgb(255, 255, 255); 
+    stroke: #000; 
+    stroke-width: 1px;
   }
 
   .favorite-button .heart-icon:hover {
@@ -284,12 +266,9 @@ transform: scale(1.1);
   }
   
   .favorite-button.favorite .heart-icon {
-    fill: red; /* Цвет, когда фильм добавлен в избранное */
+    fill: red; 
   }
 
-
-
-  /* Пример анимации */
 .animated {
   animation: fadeInUp 1s forwards;
 }
@@ -304,16 +283,6 @@ transform: scale(1.1);
     transform: translateY(0);
   }
 }
-
-
-
-
-
-
-
-
-
-
 
   @media (max-width: 768px) {
 
@@ -348,8 +317,6 @@ transform: scale(1.1);
     }
     
   }
-
-
 
   @media (max-width: 500px) {
     .movie-card {

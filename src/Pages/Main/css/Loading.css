@@ -8,7 +8,6 @@
 }
 
 #loading {
-
     z-index: 9999999; 
     top:0; 
     left:0; 
@@ -16,30 +15,29 @@
     bottom:0; 
     background: none
 }
-#loading .msg {
 
+#loading .msg {
     top: 50%;
     width: 100%;
     margin-top: 100px;
     text-align: center;
 }
-#loading .dot {
 
+#loading .dot {
     top: 50%;
     left: 50%;
     width: 128px;
     height: 128px;
     margin: -64px 0 0 -64px;
     border-radius: 50%;
-    
     border: 3px solid transparent;
     border-top-color: #288cfb;
-    
     display: inline-block;
     opacity: 1;
     animation: lp 2s linear infinite;
     background: none;
 }
+
 #loading .dot:after {
     content: "";
     position: absolute;
@@ -50,9 +48,9 @@
     border-radius: 50%;
     border: 3px solid transparent;
     border-bottom-color: #288cfb;
-    
     animation: lp 1.5s linear infinite;
 }
+
 @keyframes lp {
     0%   {
         -webkit-transform: rotate(0deg);

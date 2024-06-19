@@ -12,12 +12,12 @@ const Poster = () => {
             setCurrentIndex(prevIndex => (prevIndex + 1) % top.length);
         }, 5000);
 
-        return () => clearInterval(interval); // Очистка интервала при размонтировании компонента
+        return () => clearInterval(interval); 
     }, [resetTimer, currentIndex]);
 
     const handleClick = (index) => {
         setCurrentIndex(index);
-        setResetTimer(!resetTimer); // Сброс таймера
+        setResetTimer(!resetTimer); 
     };
 
     const currentFilm = top[currentIndex].docs[0];

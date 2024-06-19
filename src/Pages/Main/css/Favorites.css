@@ -5,7 +5,6 @@
     background-color: #050016;
     color: white;
     padding: 100px clamp(3.125rem, -5.671rem + 18.52vw, 9.375rem); /*50-1250 для 760-1300*/
-
 }
 
 .container_favoritesCards {

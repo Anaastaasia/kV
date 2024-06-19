@@ -3,7 +3,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import FirstComponent from "./Pages/Main/FirstComponent";
-import MovieDetail from './Pages/Main/MovieDetails'; // Новый компонент для отображения информации о фильме
+import MovieDetail from './Pages/Main/MovieDetails'; 
 import Favorites from './Pages/Main/Favorites';
 
 

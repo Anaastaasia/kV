@@ -12,7 +12,7 @@
     useEffect(() => {
         const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
         setFavorites(savedFavorites);
-        console.log('Избранные фильмы:', savedFavorites); // Добавим лог для отладки
+        console.log('Избранные фильмы:', savedFavorites); 
     }, []);
 
     const toggleFavorite = (movie) => {

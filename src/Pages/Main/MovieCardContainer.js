@@ -17,10 +17,10 @@ const MovieCardContainer = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const totalPages = 10;  // Фиксированное количество страниц
+  const totalPages = 10;  
   const navigate = useNavigate();
 
-  // Новые состояния для фильтров
+  // Состояния для фильтров
   const [genreFilter, setGenreFilter] = useState([]);
   const [ratingFilter, setRatingFilter] = useState({ min: 0, max: 10 });
   const [yearFilter, setYearFilter] = useState({ start: 1990, end: new Date().getFullYear() });
@@ -85,7 +85,7 @@ const MovieCardContainer = () => {
   }, [filters, totalPages]);
 
   useEffect(() => {
-    setMovies([]); // Очистить фильмы перед загрузкой новых данных
+    setMovies([]); 
     fetchMovies(page);
     if (page < totalPages) {
       fetchMovies(page + 1, true);
@@ -98,7 +98,7 @@ const MovieCardContainer = () => {
       ratingFilter,
       yearFilter
     });
-    setPage(1); // Сброс страницы при применении новых фильтров
+    setPage(1);
     setIsGenreDropdownOpen(false);
     setIsRatingDropdownOpen(false);
     setIsYearDropdownOpen(false);

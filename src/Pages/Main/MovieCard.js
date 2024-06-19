@@ -15,7 +15,7 @@ const MovieCard = ({ movie, toggleFavorite }) => {
     };
 
     const handleFavoriteClick = (e) => {
-        e.stopPropagation(); // Чтобы не срабатывал переход на страницу фильма
+        e.stopPropagation(); 
         toggleFavorite(movie);
     };
 

@@ -51,15 +51,11 @@ img, svg {
 	height: auto;
 }
 
-
-
-
 input::-ms-clear {
 	display: none;
 }
 
 button, input[type="submit"] {
-    
     box-shadow: none;
     background-color: transparent;
     background: none;
@@ -85,8 +81,7 @@ legend {
 }
 
 
-
-
+/*основные стили*/
 
 .poster_container {
     display: flex;
@@ -95,7 +90,6 @@ legend {
     width: 100vw;
     height: 100vh;
 }
-
 
 .description {
     display: flex;
@@ -117,7 +111,6 @@ legend {
     line-height: 30px;
 }
 
-
 .poster {
     width: 100vw;
     height: 90vh;
@@ -126,9 +119,7 @@ legend {
     flex-direction: column;
     color: white;
     background-position: right;
-
 }
-
 
 .dots-container {
     position: absolute;
@@ -152,8 +143,6 @@ legend {
 .dot.active {
     background-color: white;
 }
-
-
 
 @media (max-width: 768px) {
     .description {
@@ -182,9 +171,6 @@ legend {
     }
     
     .dots-container {
-
         top: 4%;
     }
-
-
 }
