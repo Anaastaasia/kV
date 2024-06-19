@@ -1,10 +1,10 @@
 /* src/Pages/Main/MovieCard.js */
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/MovieCardContainer.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 const MovieCard = ({ movie, toggleFavorite }) => {
     const [isHovered, setIsHovered] = useState(false);

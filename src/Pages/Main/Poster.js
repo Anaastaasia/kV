@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import top from './TopFilms';
 import './css/Poster.css';
+import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 const Poster = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,15 +23,29 @@ const Poster = () => {
     const currentFilm = top[currentIndex].docs[0];
     const backdropUrl = currentFilm.backdrop.url;
 
+    const elementsRef = useIntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { root: null, rootMargin: '0px', threshold: 0 });
+
+    useEffect(() => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        elementsRef.current = elements;
+    }, [elementsRef]);
+
 
     return (
     <div className='poster_container'>
-        <div className="poster" style={{
+        <div className="poster animate-on-scroll" style={{
             backgroundImage: `url(${backdropUrl})`,
 
             backgroundSize: 'cover',
         }}>
-            <div className='description'>
+            <div className='description animate-on-scroll'>
                 <h1>{currentFilm.name}</h1>
                 <p className='text'>
                     {currentFilm.shortDescription}

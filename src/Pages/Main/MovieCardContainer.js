@@ -1,15 +1,16 @@
 /* src/Pages/Main/MovieCardContainer.js */
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MovieCard from './MovieCard';
 import './css/MovieCardContainer.css';
 import ButtonFavorites from './ButtonFavorites';
 import IsLoading from './Loading';
+import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 const options = {
   method: 'GET',
-  headers: { accept: 'application/json', 'X-API-KEY': '' }
+  headers: { accept: 'application/json', 'X-API-KEY': 'R1FCW2T-PB6MF8D-QZHZAVR-EZ2K5BP' }
 };
 
 const MovieCardContainer = () => {
@@ -27,7 +28,7 @@ const MovieCardContainer = () => {
   const [nextPageData, setNextPageData] = useState(null);
 
   // Набор для уникальных фильмов
-  const movieSet = new Set();
+  const movieSet = useRef(new Set());
 
   // Состояния для управления видимостью выпадающих меню
   const [isGenreDropdownOpen, setIsGenreDropdownOpen] = useState(false);
@@ -42,7 +43,7 @@ const MovieCardContainer = () => {
 
   const fetchMovies = useCallback(async (currentPage, updateNextPageData = false) => {
     setIsLoading(true);
-    let genreQuery = filters.genreFilter.length ? `genres.name=${filters.genreFilter.join('|')}` : '';
+    let genreQuery = filters.genreFilter.length ? `genres.name=${filters.genreFilter.join('&genres.name=')}` : '';
     let ratingQuery = `rating.kp=${filters.ratingFilter.min}-${filters.ratingFilter.max}`;
     let yearQuery = `year=${filters.yearFilter.start}-${filters.yearFilter.end}`;
     let filterQuery = [genreQuery, ratingQuery, yearQuery, 'poster.url=!null', 'name=!null', 'description=!null']
@@ -57,15 +58,15 @@ const MovieCardContainer = () => {
       );
 
       const uniqueMovies = filteredMovies.filter(movie => {
-        if (!movieSet.has(movie.id)) {
-          movieSet.add(movie.id);
+        if (!movieSet.current.has(movie.id)) {
+          movieSet.current.add(movie.id);
           return true;
         }
         return false;
       });
 
       if (updateNextPageData) {
-        setNextPageData(filteredMovies);
+        setNextPageData(uniqueMovies);
       } else {
         setMovies(prevMovies => {
           const allMovies = [...prevMovies, ...uniqueMovies];
@@ -101,6 +102,7 @@ const MovieCardContainer = () => {
     setIsGenreDropdownOpen(false);
     setIsRatingDropdownOpen(false);
     setIsYearDropdownOpen(false);
+    movieSet.current.clear();
   };
 
   const handleNextPage = () => {
@@ -193,9 +195,27 @@ const toggleFavorite = (movie) => {
 
 
 
+
+const elementsRef = useIntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+      if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+      }
+  });
+}, { root: null, rootMargin: '0px', threshold: 0 });
+
+useEffect(() => {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  elementsRef.current = elements;
+}, [elementsRef]);
+
+
+
+
   return (
     <div className='container'>
-      <div className='container_filter'>
+      <div className='container_filter animate-on-scroll'>
       <ButtonFavorites/>
       <div className="filters">
         <div className='filterOne'>

@@ -42,6 +42,8 @@ padding: 0 40px;
 }
 
 
+
+
 .movie-card::after {
   content: "";
   position: absolute;
@@ -284,6 +286,34 @@ transform: scale(1.1);
   .favorite-button.favorite .heart-icon {
     fill: red; /* Цвет, когда фильм добавлен в избранное */
   }
+
+
+
+  /* Пример анимации */
+.animated {
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
   @media (max-width: 768px) {
 
