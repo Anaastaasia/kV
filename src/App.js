@@ -9,7 +9,7 @@ import Favorites from './Pages/Main/Favorites';
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
     <Routes>
       <Route path="/"  element={<FirstComponent/>} />
       <Route path="/movie/:id"  element={<MovieDetail/>} />
